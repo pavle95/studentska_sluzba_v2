@@ -36,6 +36,9 @@
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['username'] = $row['username'];
+                    $_SESSION['is_admin'] = $row['is_admin'];
+                    $_SESSION['student_id'] = $row['student_id'];
+                    $_SESSION['professor_id'] = $row['professor_id'];
                     header("location: index.php");
                 }else{
                     header("location: login.php");
