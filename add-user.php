@@ -17,7 +17,7 @@
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
-    <script src="js/validate/professor.js"></script>
+    <script src="js/validate/user.js"></script>
     <script src="js/sb-admin.js"></script>
 </head>
 
@@ -38,93 +38,47 @@
         <!-- Student DataTable-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-user-plus"></i>Add Professor</div>
+                <i class="fa fa-user-plus"></i>Add User</div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <form method="post" name="add_professor" onsubmit="return validateAddProfessor()">
+                    <form method="post" name="add_user" onsubmit="return validateAddUser()">
                         <?php
                         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            $firstname = $_POST['firstname'];
-                            $lastname = $_POST['lastname'];
-                            $age = $_POST['age'];
-                            $subject = $_POST['subject'];
-                            $sql = "Select * from professor where first_name='$firstname' and last_name='$lastname'";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                                echo "<p style='color:red; text-align:center; font-weight:bold;'>Professor already exists</p>";
-                                return;
-                            }
                             $username = $_POST['username'];
                             $email = $_POST['email'];
                             $password = $_POST['password'];
+                            $admin = 0;
+                            if(isset($_POST['admin'])){
+                                $admin =1;
+                            }
                             $sql = "Select * from users where email = '$email' " ;
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 echo "<p style='color:red; text-align:center; font-weight:bold;'>User already exists</p>";
                                 return;
                             }
-                            $sql = "INSERT INTO professor( first_name, last_name, age, subject_id) VALUES ('$firstname', '$lastname', $age, $subject)";
-                            if ($conn->query($sql) == false) {
-                                return $sql;
-                            }
-                            $sql = "Select * from professor where first_name='$firstname' and last_name='$lastname'";
-                            $result = $conn->query($sql);
-                            if ($row = $result->fetch_assoc()) {
-                                $professor = $row['id'];
-                            }
-                            $admin = 0;
-                            if (isset($_POST['admin'])){
-                                $admin = 1;
-                            }
-
-                            $sql = "INSERT INTO users( username, email, password, is_admin, student_id, professor_id) VALUES ('$username', '$email', '$password', '$admin', 0, $professor)";
+                            $sql = "INSERT INTO users( username, email, password, is_admin, student_id, professor_id) VALUES ('$username', '$email', '$password', '$admin', 0 , 0)";
                             if ($conn->query($sql) == true) {
-                                echo '<script type="text/javascript"> window.location = "professors.php"</script>';
+                                echo '<script type="text/javascript"> window.location = "index.php"</script>';
                             }
                         }
                         ?>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="text" class="form-control" name="email"  placeholder="Enter email">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input class="form-control" id="exampleInputEmail1" type="text" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control" name="username"  placeholder="Enter username">
+                            <label for="exampleInputUsername1">Username</label>
+                            <input class="form-control" id="exampleInputUsername1" type="text" name="username" aria-describedby="emailHelp" placeholder="Username">
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" name="password"  placeholder="Enter password">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input class="form-control" id="exampleInputPassword1" name="password" type="password" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
+                                <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" name="firstname"  placeholder="Enter first name">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" name="lastname"  placeholder="Enter last name">
-                        </div>
-                        <div class="form-group">
-                            <label>Age</label>
-                            <input type="text" class="form-control" name="age" placeholder="Enter age">
-                        </div>
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <select class="form-control" name="subject">
-                                <?php
-                                $sql = "select * from subject";
-                                $result = $conn->query($sql);
-                                if($result->num_rows>0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['id']."'>".$row['name']."</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

@@ -50,12 +50,52 @@
                             $index = $_POST['index'];
                             $birt_date = $_POST['birth_date'];
                             $course = $_POST['course'];
+                            $sql = "Select * from student where index_number='$index'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<p style='color:red; text-align:center; font-weight:bold;'>Students can't have the same index</p>";
+                                return;
+                            }
+                            $username = $_POST['username'];
+                            $email = $_POST['email'];
+                            $password = $_POST['password'];
+                            $sql = "Select * from users where email = '$email' " ;
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<p style='color:red; text-align:center; font-weight:bold;'>User already exists</p>";
+                                return;
+                            }
                             $sql = "INSERT INTO student(index_number, first_name, last_name, gender, birthday, course) VALUES ('$index', '$firstname', '$lastname', '$gender', '$birt_date', '$course')";
+                            if ($conn->query($sql) == false) {
+                                return $sql;
+                            }
+                            echo "uzima se student";
+                            $sql = "Select * from student where index_number='$index'";
+                            $result = $conn->query($sql);
+                            if ($row = $result->fetch_assoc()) {
+                                $student = $row['id'];
+                            }
+                            echo "insert usera";
+                            $sql = "INSERT INTO users( username, email, password, is_admin, student_id, professor_id) VALUES ('$username', '$email', '$password', 0, $student, 0)";
                             if ($conn->query($sql) == true) {
                                 echo '<script type="text/javascript"> window.location = "students.php"</script>';
+                            }else{
+                                echo $sql;
                             }
                         }
                         ?>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email"  placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username"  placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password"  placeholder="Enter password">
+                        </div>
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  placeholder="Enter firstname">

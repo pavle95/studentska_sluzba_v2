@@ -22,11 +22,6 @@
     <?php  }else{ ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="register.php">
-                    <i class="fa fa-fw fa-user-plus"></i> Register</a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" href="login.php">
                     <i class="fa fa-fw fa-sign-in"></i> Login</a>
             </li>

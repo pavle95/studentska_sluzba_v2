@@ -28,7 +28,6 @@ function validateAddUser() {
     }else{
         validation+= "password can't be empty\n";
     }
-
     if(validation==""){
         alert("User added successfully");
         return true;
@@ -36,7 +35,6 @@ function validateAddUser() {
         alert(validation);
         return false;
     }
-
 }
 
 function validateLogin(){
