@@ -44,9 +44,9 @@
                         <!--  Uzimaju se podaci od trazenog studenta  -->
                     <?php
                     $id = $_REQUEST['id'];
-                    $sql = "SELECT * from student where id=".$id;
+                    $sql = "SELECT s.*, u.* from student s, users u where s.id = u.student_id and s.id=".$id;
                     $result = $conn->query($sql);
-                    $firstname;$lastname;$gender;$birthday;$course;$index;
+                    $firstname;$lastname;$gender;$birthday;$course;$index;$username;$password;$email;
                     if($result->num_rows>0) {
                         while ($row = $result->fetch_assoc()) {
                             $firstname = $row['first_name'];
@@ -55,6 +55,9 @@
                             $gender = $row['gender'];
                             $birthday = $row['birthday'];
                             $course = $row['course'];
+                            $username = $row['username'];
+                            $password = $row['password'];
+                            $email = $row['email'];
                         }
                     }
                     ?>
@@ -69,11 +72,32 @@
                             $birt_date = $_POST['birth_date'];
                             $course = $_POST['course'];
                             $sql = "UPDATE student SET index_number='".$index."',first_name='".$firstname."',last_name='".$lastname."',gender='".$gender."',birthday='".$birt_date."',course='".$course."' WHERE id=".$id;
+                            if ($conn->query($sql) == false) {
+                                echo $sql;
+                            }
+                            $email =$_POST['email'];
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+                            $sql = "UPDATE users SET email='$email', username='$username', password='$password' where student_id=".$id;
                             if ($conn->query($sql) == true) {
                                 echo '<script type="text/javascript"> window.location = "students.php"</script>';
+                            }else{
+                                echo $sql;
                             }
                         }
                         ?>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email"  value="<?php echo $email ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username"  value="<?php echo $username ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password"  value="<?php echo $password ?>">
+                        </div>
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  value="<?php echo $firstname ?>">

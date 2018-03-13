@@ -41,18 +41,22 @@
                 <i class="fa fa-user-plus"></i>Edit Professor</div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <!-- Prikupljaju se podaci o profesoru  -->
+                    <!-- Prikupljaju se podaci o profesoru/useru  -->
                     <?php
                     $id = $_REQUEST['id'];
-                    $sql = "SELECT * from professor where id=".$id;
+                    $sql = "SELECT p.*, u.*  from professor p, users u where p.id = u.professor_id and p.id=".$id;
                     $result = $conn->query($sql);
-                    $firstname;$lastname;$age;$subject;
+                    $firstname;$lastname;$age;$subject;$username;$password;$email;$admin;
                     if($result->num_rows>0) {
                         while ($row = $result->fetch_assoc()) {
                             $firstname = $row['first_name'];
                             $lastname = $row['last_name'];
                             $age = $row['age'];
                             $subject = $row['subject_id'];
+                            $username = $row['username'];
+                            $password = $row['password'];
+                            $email = $row['email'];
+                            $admin = $row['is_admin'];
                         }
                     }
                     ?>
@@ -64,14 +68,48 @@
                             $age = $_POST['age'];
                             $subject = $_POST['subject'];
                             $sql = "UPDATE professor SET first_name='".$firstname."',last_name='".$lastname."',age=".$age.",subject_id=".$subject." WHERE id=".$id;
+                            if ($conn->query($sql) == false) {
+                                echo $sql;
+                            }
+                            $email =$_POST['email'];
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+                            $admin = 0;
+                            if (isset($_POST['admin'])){
+                                $admin = 1;
+                            }
+                            $sql = "UPDATE users SET email='$email', username='$username', password='$password', is_admin='$admin' where professor_id=".$id;
                             if ($conn->query($sql) == true) {
-                                echo '<script type="text/javascript"> window.location = "professor-list.php"</script>';
+                                echo '<script type="text/javascript"> window.location = "professors.php"</script>';
                             }else{
                                 echo $sql;
                             }
                         }
                         ?>
-                        ?>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email"  value="<?php echo $email ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username"  value="<?php echo $username ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password"  value="<?php echo $password ?>">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <?php
+                                    if($admin==1){
+                                        echo '<input type="checkbox" class="form-check-input" name="admin" checked> Admin<br>';
+                                    }else{
+                                        echo '<input type="checkbox" class="form-check-input" name="admin"> Admin<br>';
+                                    }
+                                ?>
+
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  value="<?php echo $firstname ?>">
