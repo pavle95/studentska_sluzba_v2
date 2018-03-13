@@ -11,12 +11,7 @@
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">Users</span>
-                </a>
-            </li>
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                 <a class="nav-link" href="subjects.php">
                     <i class="fa fa-fw fa-book"></i>
@@ -35,34 +30,6 @@
                     <span class="nav-link-text">Students</span>
                 </a>
             </li>
-            <br>
-            <h4 class="navbar-brand" style="margin-left: 7%">Add users</h4>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-user.php">
-                    <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">Add user</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="add-subject.php">
-                    <i class="fa fa-fw fa-book"></i>
-                    <span class="nav-link-text">Subjects</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-professor.php">
-                    <i class="fa fa-fw fa-glass"></i>
-                    <span class="nav-link-text">Add professor</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-student.php">
-                    <i class="fa fa-fw fa-beer"></i>
-                    <span class="nav-link-text">Add student</span>
-                </a>
-            </li>
-
-
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">

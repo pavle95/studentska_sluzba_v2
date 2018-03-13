@@ -21,7 +21,20 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
-<?php include "nav.php"; ?>
+<?php
+if(isset($_SESSION["username"])) {
+
+    if ($_SESSION["is_admin"] == 1) {
+        include "nav.php";
+    } elseif ($_SESSION['student_id'] != 0) {
+        include "studentnav.php";
+    } else {
+        include "professornav.php";
+    }
+}else{
+    include "guestnav.php";
+}
+?>
 <!-- -->
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -44,6 +57,15 @@
                             <th>Name</th>
                             <th>Age</th>
                             <th>Subject</th>
+                            <?php
+                                if(isset($_SESSION["username"]))
+                                {
+                                    if ($_SESSION["is_admin"] == 1) {
+                                        echo "<th>Edit</th>";
+                                        echo "<th>Delete</th>";
+                                    }
+                                }
+                            ?>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,8 +76,15 @@
                             echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                             echo "<td>" . $row['age'] . "</td>";
                             echo "<td>" . $row['name'] . "</td>";
-                            echo "<td><a href='edit-professor.php?id=".$row['id']."'>Edit</a></td>";
-                            echo "<td><a href='delete-professor.php?id=".$row['id']."'>Delete</a></td>";
+
+                            if(isset($_SESSION["username"]))
+                            {
+                                if ($_SESSION["is_admin"] == 1)
+                                {
+                                    echo "<td><a href='edit-professor.php?id=" . $row['id'] . "'>Edit</a></td>";
+                                    echo "<td><a href='delete-professor.php?id=" . $row['id'] . "'>Delete</a></td>";
+                                }
+                            }
                             echo "</tr>";
                         }
                         ?>
