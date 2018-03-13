@@ -36,30 +36,25 @@
                 </a>
             </li>
             <br>
-            <h4 class="navbar-brand" style="margin-left: 7%">Add users</h4>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-user.php">
-                    <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">Add user</span>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Add database entries</span>
                 </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="add-subject.php">
-                    <i class="fa fa-fw fa-book"></i>
-                    <span class="nav-link-text">Subjects</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-professor.php">
-                    <i class="fa fa-fw fa-glass"></i>
-                    <span class="nav-link-text">Add professor</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="add-student.php">
-                    <i class="fa fa-fw fa-beer"></i>
-                    <span class="nav-link-text">Add student</span>
-                </a>
+                <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                    <li>
+                        <a href="add-user.php">Add user</a>
+                    </li>
+                    <li>
+                        <a href="add-subject.php">Add subject</a>
+                    </li>
+                    <li>
+                        <a href="add-professor.php">Add professor</a>
+                    </li>
+                    <li>
+                        <a href="add-student.php">Add student</a>
+                    </li>
+                </ul>
             </li>
 
 
