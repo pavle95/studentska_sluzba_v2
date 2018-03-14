@@ -4,7 +4,7 @@
 
             <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-user-circle"></i><?php echo $_SESSION['username']; ?>
+                    <i class="fa fa-fw fa-user-circle"></i>
                     <span class="d-lg-none">Profile</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="messagesDropdown">
@@ -13,26 +13,24 @@
                 </div>
             </li>-->
             <li class="nav-item">
+                <a class="nav-link" href="#">
                 <?php
                     if($_SESSION['is_admin']==1)
                     {
-                        echo "<a class=\"nav-link\" href=\"#\">
-                              <i class=\"fa fa-fw fa-user-circle\"></i>
-                              </a>";
+                        echo "<i class=\"fa fa-fw fa-user-circle\"></i>";
 
-                    }else if($_SESSION['student_id']!= 0)
-                        {
-                            echo "<a class=\"nav-link\" href=\"#\">
-                                    <i class=\"fa fa-fw fa-graduation-cap\"></i>
-                                  </a>";
-                        }
-                        else
-                            {
-                                echo "<a class=\"nav-link\" href=\"#\">
-                                    <i class=\"fa fa-fw fa-suitcase\"></i>
-                                  </a>";
-                            }
+                    }
+                    else if($_SESSION['student_id']!= 0)
+                    {
+                        echo "<i class=\"fa fa-fw fa-graduation-cap\"></i>";
+                    }
+                    else
+                    {
+                        echo "<i class=\"fa fa-fw fa-suitcase\"></i>";
+                    }
+                    echo $_SESSION['username'];
                 ?>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">

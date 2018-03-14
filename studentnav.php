@@ -20,13 +20,13 @@
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link" href="professors.php">
-                    <i class="fa fa-fw fa-glass"></i>
+                    <i class="fa fa-fw fa-suitcase"></i>
                     <span class="nav-link-text">Professors</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link" href="students.php">
-                    <i class="fa fa-fw fa-beer"></i>
+                    <i class="fa fa-fw fa-graduation-cap"></i>
                     <span class="nav-link-text">Students</span>
                 </a>
             </li>
