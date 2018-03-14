@@ -25,34 +25,45 @@
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link" href="professors.php">
-                    <i class="fa fa-fw fa-glass"></i>
+                    <i class="fa fa-fw fa-suitcase"></i>
                     <span class="nav-link-text">Professors</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link" href="students.php">
-                    <i class="fa fa-fw fa-beer"></i>
+                    <i class="fa fa-fw fa-graduation-cap"></i>
                     <span class="nav-link-text">Students</span>
                 </a>
             </li>
             <br>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-file"></i>
                     <span class="nav-link-text">Add database entries</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a href="add-user.php">Add admin</a>
+                        <a class="nav-link" href="users.php">
+                            <i class="fa fa-fw fa-plus-circle"></i>
+                            <span class="nav-link-text">Admin</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="add-subject.php">Add subject</a>
+                        <a class="nav-link" href="add-subject.php">
+                            <i class="fa fa-fw fa-plus-circle"></i>
+                            <span class="nav-link-text">Subjects</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="add-professor.php">Add professor</a>
+                        <a class="nav-link" href="add-professor.php">
+                            <i class="fa fa-fw fa-plus-circle"></i>
+                            <span class="nav-link-text">Professor</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="add-student.php">Add student</a>
+                        <a class="nav-link" href="add-student.php">
+                            <i class="fa fa-fw fa-plus-circle"></i>
+                            <span class="nav-link-text">Student</span>
+                        </a>
                     </li>
                 </ul>
             </li>
