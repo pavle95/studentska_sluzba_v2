@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="subjects.php">
+                <a class="nav-link" href="subjects-for-student.php">
                     <i class="fa fa-fw fa-book"></i>
                     <span class="nav-link-text">Subjects</span>
                 </a>
