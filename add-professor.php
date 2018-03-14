@@ -91,14 +91,6 @@
                             <label>Password</label>
                             <input type="password" class="form-control" name="password"  placeholder="Enter password">
                         </div>
-<<<<<<< HEAD
-                        <!--<div class="form-group">
-                            <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
-                            </div>
-                        </div>-->
-=======
->>>>>>> pavle
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  placeholder="Enter first name">
@@ -115,7 +107,7 @@
                             <label>Subject</label>
                             <select class="form-control" name="subject">
                                 <?php
-                                $sql = "select * from subject";
+                                $sql = "select * from subject where id not in (select subject_id from professor)";
                                 $result = $conn->query($sql);
                                 if($result->num_rows>0) {
                                     while ($row = $result->fetch_assoc()) {

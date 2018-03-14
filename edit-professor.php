@@ -126,7 +126,7 @@
                             <label>Subject</label>
                             <select class="form-control" name="subject">
                                 <?php
-                                $sql = "select * from subject";
+                                $sql = "select * from subject where id not in (select subject_id from professor)";
                                 $result = $conn->query($sql);
                                 if($result->num_rows>0) {
                                     while ($row = $result->fetch_assoc()) {
