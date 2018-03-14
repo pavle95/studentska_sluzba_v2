@@ -85,8 +85,7 @@ if(isset($_SESSION["username"])) {
                             }
 
                             echo "<td><a href='edit-user.php?id=" . $row['id'] . "'>Edit</a></td>";
-                            echo "<td><a href='delete-user.php?id=" . $row['id'] . "'>Delete</a></td>";
-                            echo "</tr>";
+                            echo "<td><a href='delete-user.php?id=" . $row['id'] . "&is_admin=".$row['is_admin']."&student_id=".$row['student_id']."&professor_id=".$row['professor_id']."'>Delete</a></td>";                            echo "</tr>";
                         }
                         mysqli_close($conn);
                         ?>

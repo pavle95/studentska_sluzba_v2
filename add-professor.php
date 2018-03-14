@@ -91,14 +91,7 @@
                             <label>Password</label>
                             <input type="password" class="form-control" name="password"  placeholder="Enter password">
                         </div>
-<<<<<<< HEAD
-                        <!--<div class="form-group">
-                            <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
-                            </div>
-                        </div>-->
-=======
->>>>>>> pavle
+
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  placeholder="Enter first name">
