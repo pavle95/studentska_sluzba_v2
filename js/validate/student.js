@@ -70,7 +70,6 @@ function validateAddStudent() {
 }
 
 function validateEditStudent() {
-    alert("b");
     var validation="";
     var firstname = document.forms["edit_student"]["firstname"].value;
     if(firstname==""){
@@ -126,7 +125,6 @@ function validateEditStudent() {
     }else{
         validation+= "password can't be empty\n";
     }
-    alert("aa");
     if(validation==""){
         //alert("Student added successfully");
         return true;
