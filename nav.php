@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="users.php">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="nav-link-text">Users</span>
                 </a>
@@ -43,7 +43,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a href="add-user.php">Add user</a>
+                        <a href="add-user.php">Add admin</a>
                     </li>
                     <li>
                         <a href="add-subject.php">Add subject</a>

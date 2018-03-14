@@ -42,57 +42,184 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="index.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
-      <!-- Icon Cards-->
 
       <!-- Student DataTable-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Students</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Index</th>
-                  <th>Name</th>
-                  <th>Gender</th>
-                  <th>Birth date</th>
-                  <th>Course</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-              $result = mysqli_query($conn,"SELECT * FROM student");
-              while($row = mysqli_fetch_array($result)) {
-                  echo "<tr>";
-                  echo "<td>" . $row['index_number'] . "</td>";
-                  echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                  echo "<td>" . $row['gender'] . "</td>";
-                  echo "<td>" . $row['birthday'] . "</td>";
-                  echo "<td>" . $row['course'] . "</td>";
-                  echo "</tr>";
-              }
-              ?>
-              </tbody>
-            </table>
+        <div class="row">
+
+            <div class="col-6">
+                  <div class="card mb-3">
+                    <div class="card-header">
+                      <i class="fa fa-table"></i> Students
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Index</th>
+                              <th>Name</th>
+                              <th>Gender</th>
+                              <th>Birth date</th>
+                              <th>Course</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php
+                          $result = mysqli_query($conn,"SELECT * FROM student");
+                          while($row = mysqli_fetch_array($result)) {
+                              echo "<tr>";
+                              echo "<td>" . $row['index_number'] . "</td>";
+                              echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                              echo "<td>" . $row['gender'] . "</td>";
+                              echo "<td>" . $row['birthday'] . "</td>";
+                              echo "<td>" . $row['course'] . "</td>";
+                              echo "</tr>";
+                          }
+                          ?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+              </div>
+            </div>
+            <!-- Professor DataTable-->
+            <div class="col-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Professors</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Subject</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $result = mysqli_query($conn,"SELECT p.id, p.first_name, p.last_name, p.age, s.name FROM professor p, subject s WHERE p.subject_id = s.id");
+                                while($row = mysqli_fetch_array($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                    echo "<td>" . $row['age'] . "</td>";
+                                    echo "<td>" . $row['name'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Subjects DataTable-->
+        <div class="row">
+            <div class="col-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Subjects</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Semester</th>
+                                    <th>ECDL credits</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $result = mysqli_query($conn,"SELECT * FROM subject");
+                                while($row = mysqli_fetch_array($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['name'] . "</td>";
+                                    echo "<td>" . $row['semester'] . "</td>";
+                                    echo "<td>" . $row['ecdl_credits'] . "</td>";
+                                    echo "<td>" . $row['description'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users DataTable-->
+            <div class="col-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Users</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Subject</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $result = mysqli_query($conn,"SELECT * FROM users");
+
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['username'] . "</td>";
+                                    echo "<td>" . $row['email'] . "</td>";
+
+                                    if($row['student_id'] != 0)
+                                    {
+                                        echo "<td>Student</td>";
+                                    }
+                                    elseif ($row['professor_id'] != 0)
+                                    {
+                                        echo "<td>Professor</td>";
+                                    }
+                                    else
+                                    {
+                                        echo "<td>Admin</td>";
+                                    }
+
+                                    echo "</tr>";
+                                }
+                                mysqli_close($conn);
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+          <div class="container">
+            <div class="text-center">
+              <small>Copyright © Your Website 2018</small>
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
-        <!-- Professor DataTable -->
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
-        </div>
-      </div>
-    </footer>
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
@@ -113,6 +240,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+  </div>
   </div>
 </body>
 
