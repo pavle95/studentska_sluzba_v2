@@ -25,9 +25,9 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link" href="students.php">
+                <a class="nav-link" href="students-subject.php">
                     <i class="fa fa-fw fa-beer"></i>
-                    <span class="nav-link-text">Students</span>
+                    <span class="nav-link-text">My Students</span>
                 </a>
             </li>
         </ul>

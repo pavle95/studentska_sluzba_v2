@@ -73,10 +73,6 @@
                                 $professor = $row['id'];
                             }
                             $admin = 0;
-                            if (isset($_POST['admin'])){
-                                $admin = 1;
-                            }
-
                             $sql = "INSERT INTO users( username, email, password, is_admin, student_id, professor_id) VALUES ('$username', '$email', '$password', '$admin', 0, $professor)";
                             if ($conn->query($sql) == true) {
                                 echo '<script type="text/javascript"> window.location = "professors.php"</script>';
@@ -95,11 +91,14 @@
                             <label>Password</label>
                             <input type="password" class="form-control" name="password"  placeholder="Enter password">
                         </div>
+<<<<<<< HEAD
                         <!--<div class="form-group">
                             <div class="form-check">
                             <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
                             </div>
                         </div>-->
+=======
+>>>>>>> pavle
                         <div class="form-group">
                             <label>First Name</label>
                             <input type="text" class="form-control" name="firstname"  placeholder="Enter first name">
