@@ -42,7 +42,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a class="nav-link" href="users.php">
+                        <a class="nav-link" href="add-user.php">
                             <i class="fa fa-fw fa-plus-circle"></i>
                             <span class="nav-link-text">Admin</span>
                         </a>

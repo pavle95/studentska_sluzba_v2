@@ -74,18 +74,22 @@ if(isset($_SESSION["username"])) {
                             if($row['student_id'] != 0)
                             {
                                 echo "<td>Student</td>";
+                                echo "<td><a href='edit-student.php?id=" . $row['student_id'] . "'>Edit</a></td>";
+                                echo "<td><a href='delete-user.php?id=" . $row['id'] . "&is_admin=".$row['is_admin']."&student_id=".$row['student_id']."&professor_id=".$row['professor_id']."'>Delete</a></td>";
                             }
                             elseif ($row['professor_id'] != 0)
                             {
                                 echo "<td>Professor</td>";
+                                echo "<td><a href='edit-professor.php?id=" . $row['professor_id'] . "'>Edit</a></td>";
+                                echo "<td><a href='delete-user.php?id=" . $row['id'] . "&is_admin=".$row['is_admin']."&student_id=".$row['student_id']."&professor_id=".$row['professor_id']."'>Delete</a></td>";
                             }
                             else
                             {
                                 echo "<td>Admin</td>";
+                                echo "<td><a href='edit-user.php?id=" . $row['id'] . "'>Edit</a></td>";
+                                echo "<td><a href='delete-user.php?id=" . $row['id'] . "&is_admin=".$row['is_admin']."&student_id=".$row['student_id']."&professor_id=".$row['professor_id']."'>Delete</a></td>";
                             }
 
-                            echo "<td><a href='edit-user.php?id=" . $row['id'] . "'>Edit</a></td>";
-                            echo "<td><a href='delete-user.php?id=" . $row['id'] . "&is_admin=".$row['is_admin']."&student_id=".$row['student_id']."&professor_id=".$row['professor_id']."'>Delete</a></td>";                            echo "</tr>";
                         }
                         mysqli_close($conn);
                         ?>
