@@ -55,6 +55,7 @@ if(isset($_SESSION["username"])) {
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Professor</th>
                             <th>Semester</th>
                             <th>ECDL credits</th>
                             <th>Description</th>
@@ -64,11 +65,12 @@ if(isset($_SESSION["username"])) {
                         <tbody>
                         <?php
                         $sid = $_SESSION['student_id'];
-                        $sql = "SELECT s.*, ss.number_of_points FROM subject s, student_subject ss where s.id = ss.subject_id and s.id in (SELECT subject_id from student_subject where student_id = '$sid') group by s.id";
+                        $sql = "SELECT s.*, ss.number_of_points, p.first_name, p.last_name FROM subject s, student_subject ss, professor p where p.subject_id = s.id and s.id = ss.subject_id and ss.student_id = '$sid' and s.id in (SELECT subject_id from student_subject where student_id = '$sid') group by s.id";
                         $result = mysqli_query($conn,$sql);
                         while($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
                             echo "<td>" . $row['name'] . "</td>";
+                            echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                             echo "<td>" . $row['semester'] . "</td>";
                             echo "<td>" . $row['ecdl_credits'] . "</td>";
                             echo "<td>" . $row['description'] . "</td>";
@@ -105,6 +107,7 @@ if(isset($_SESSION["username"])) {
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Professor</th>
                             <th>Semester</th>
                             <th>ECDL credits</th>
                             <th>Description</th>
@@ -114,11 +117,12 @@ if(isset($_SESSION["username"])) {
                         <tbody>
                         <?php
                         $sid = $_SESSION['student_id'];
-                        $sql = "SELECT * FROM subject where id not in (SELECT subject_id from student_subject where student_id = '$sid')";
+                        $sql = "SELECT s.*, p.first_name, p.last_name  FROM subject s, professor p where s.id = p.subject_id and s.id not in (SELECT subject_id from student_subject where student_id = '$sid')";
                         $result = mysqli_query($conn,$sql);
                         while($row = mysqli_fetch_array($result)) {
                             echo "<tr>";
                             echo "<td>" . $row['name'] . "</td>";
+                            echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                             echo "<td>" . $row['semester'] . "</td>";
                             echo "<td>" . $row['ecdl_credits'] . "</td>";
                             echo "<td>" . $row['description'] . "</td>";
