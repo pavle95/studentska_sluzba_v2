@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * Deletes student data but also the relevant user and student_subject data
+ * and redirects back to the student-list
+ */
+
 require 'connection.php';
 $id = $_REQUEST['id'];
 mysqli_query($conn,"DELETE FROM student WHERE id = '$id'");

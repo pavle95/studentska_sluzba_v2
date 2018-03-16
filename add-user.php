@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require 'connection.php';?>
+    <?php require 'connection.php'; ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,20 +38,27 @@
         <!-- Student DataTable-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-user-plus"></i>Add User</div>
+                <i class="fa fa-user-plus"></i>Add User
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <form method="post" name="add_user" onsubmit="return validateAddUser()">
                         <?php
-                        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                        /*
+                             *Gets the form data and checks to see if the given email address matches an existing one in the database
+                             * and if it doesn't it proceeds with adding the user to the database, otherwise it
+                             * will give a warning that email address is already in use.Finally it redirects back to the index page
+                             */
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $username = $_POST['username'];
                             $email = $_POST['email'];
                             $password = $_POST['password'];
                             $admin = 0;
-                            if(isset($_POST['admin'])){
-                                $admin =1;
+                            if (isset($_POST['admin'])) {
+                                $admin = 1;
                             }
-                            $sql = "Select * from users where email = '$email' " ;
+                            $sql = "Select * from users where email = '$email' ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 echo "<p style='color:red; text-align:center; font-weight:bold;'>User already exists</p>";
@@ -65,15 +72,18 @@
                         ?>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input class="form-control" id="exampleInputEmail1" type="text" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input class="form-control" id="exampleInputEmail1" type="text" name="email"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername1">Username</label>
-                            <input class="form-control" id="exampleInputUsername1" type="text" name="username" aria-describedby="emailHelp" placeholder="Username">
+                            <input class="form-control" id="exampleInputUsername1" type="text" name="username"
+                                   aria-describedby="emailHelp" placeholder="Username">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input class="form-control" id="exampleInputPassword1" name="password" type="password" placeholder="Password">
+                            <input class="form-control" id="exampleInputPassword1" name="password" type="password"
+                                   placeholder="Password">
                         </div>
                         <div class="form-group">
                             <div class="form-check">
@@ -101,7 +111,7 @@
         <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <?php include "modals.php";?>
+    <?php include "modals.php"; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

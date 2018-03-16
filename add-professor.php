@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require 'connection.php';?>
+    <?php require 'connection.php'; ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,12 +37,20 @@
         <!-- Add professor form-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-user-plus"></i>Add Professor</div>
+                <i class="fa fa-user-plus"></i>Add Professor
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <form method="post" name="add_professor" onsubmit="return validateAddProfessor()">
                         <?php
-                        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                        /*
+                         * Gets the form data and checks to see if the given full name matches an existing one in the database
+                         * and if it doesn't it proceeds with adding the professor to the database, otherwise it
+                         * will give a warning that professor already exists
+                         */
+
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $firstname = $_POST['firstname'];
                             $lastname = $_POST['lastname'];
                             $age = $_POST['age'];
@@ -53,15 +61,28 @@
                                 echo "<p style='color:red; text-align:center; font-weight:bold;'>Professor already exists</p>";
                                 return;
                             }
+
+                            /*
+                             *Gets the form data and checks to see if the given email address matches an existing one in the database
+                             * and if it doesn't it proceeds with adding the user to the database, otherwise it
+                             * will give a warning that email address is already in use
+                             */
+
                             $username = $_POST['username'];
                             $email = $_POST['email'];
                             $password = $_POST['password'];
-                            $sql = "Select * from users where email = '$email' " ;
+                            $sql = "Select * from users where email = '$email' ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 echo "<p style='color:red; text-align:center; font-weight:bold;'>User already exists</p>";
                                 return;
                             }
+
+                            /*
+                             * Inserts form data into relevant tables, in this case adds the professors data to professor table
+                             * and his register credentials to the user table.Finally it will redirect back to the professors list.
+                             */
+
                             $sql = "INSERT INTO professor( first_name, last_name, age, subject_id) VALUES ('$firstname', '$lastname', $age, $subject)";
                             if ($conn->query($sql) == false) {
                                 return $sql;
@@ -80,24 +101,24 @@
                         ?>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" class="form-control" name="email"  placeholder="Enter email">
+                            <input type="text" class="form-control" name="email" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control" name="username"  placeholder="Enter username">
+                            <input type="text" class="form-control" name="username" placeholder="Enter username">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" name="password"  placeholder="Enter password">
+                            <input type="password" class="form-control" name="password" placeholder="Enter password">
                         </div>
 
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" name="firstname"  placeholder="Enter first name">
+                            <input type="text" class="form-control" name="firstname" placeholder="Enter first name">
                         </div>
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" name="lastname"  placeholder="Enter last name">
+                            <input type="text" class="form-control" name="lastname" placeholder="Enter last name">
                         </div>
                         <div class="form-group">
                             <label>Age</label>
@@ -107,11 +128,18 @@
                             <label>Subject</label>
                             <select class="form-control" name="subject">
                                 <?php
+
+                                /*
+                                 * Gives select options about the assignment of a certain subject to
+                                 * the professor based on the data that says if the subject is already
+                                 * taken by another professor
+                                 */
+
                                 $sql = "select * from subject where id not in (select subject_id from professor)";
                                 $result = $conn->query($sql);
-                                if($result->num_rows>0) {
+                                if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                                        echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
                                     }
                                 }
                                 ?>
@@ -137,7 +165,7 @@
         <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
-    <?php include "modals.php";?>
+    <?php include "modals.php"; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
