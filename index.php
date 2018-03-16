@@ -170,7 +170,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Age</th>
-                                    <th>Subject</th>
+                                    <th>Role</th>
                                 </tr>
                                 </thead>
                                 <tbody>

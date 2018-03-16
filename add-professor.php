@@ -22,7 +22,7 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<!-- Navigation-->
+<!-- Navigation based on permissions-->
 <?php include "nav.php"; ?>
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -33,9 +33,8 @@
             </li>
             <li class="breadcrumb-item active">My Dashboard</li>
         </ol>
-        <!-- Icon Cards-->
 
-        <!-- Student DataTable-->
+        <!-- Add professor form-->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-user-plus"></i>Add Professor</div>
@@ -123,7 +122,6 @@
                 </div>
             </div>
         </div>
-        <!-- Professor DataTable -->
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

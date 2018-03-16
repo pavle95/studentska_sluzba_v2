@@ -43,7 +43,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Age</th>
-                            <th>Subject</th>
+                            <th>Role</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

@@ -22,7 +22,7 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<!-- Navigation-->
+<!-- Navigation based on permission-->
 <?php include "nav.php"; ?>
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -35,7 +35,7 @@
         </ol>
         <!-- Icon Cards-->
 
-        <!-- Student DataTable-->
+        <!-- Add student form-->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-user-plus"></i>Add Student</div>
