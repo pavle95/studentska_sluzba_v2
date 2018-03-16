@@ -26,6 +26,12 @@
       <div class="card-body">
         <form method="post" name="login" onsubmit="return validateLogin()">
             <?php
+
+            /*
+             * Takes the login form data and checks for matching user records
+             * in the database to allow for the login to be successful
+             */
+
             if($_SERVER['REQUEST_METHOD']=="POST"){
                 $email = $_POST['email'];
                 $password = $_POST['password'];
