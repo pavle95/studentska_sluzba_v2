@@ -1,4 +1,7 @@
 function validateAddSubject() {
+    //check if entered data(name, ecdl, descirption) is empty or in invalid format.
+    //if data is not valid alert user
+    //return true or false
     var validation = "";
     var name = document.forms["add_subject"]["name"].value;
     if(name==""){
@@ -27,6 +30,9 @@ function validateAddSubject() {
 }
 
 function validateEditSubject() {
+    //check if entered data(name, ecdl, descirption) is empty or in invalid format.
+    //if data is not valid alert user
+    //return true or false
     var validation = "";
     var name = document.forms["edit_subject"]["name"].value;
     if(name==""){
