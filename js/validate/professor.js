@@ -1,4 +1,7 @@
 function validateAddProfessor(){
+    //check if entered data is empty or in invalid format.
+    //if data is not valid alert user
+    //return true or false
     var validation="";
     var firstname = document.forms["add_professor"]["firstname"].value;
     if(firstname==""){
@@ -58,6 +61,9 @@ function validateAddProfessor(){
 }
 
 function validateEditProfessor(){
+    //check if entered data is empty or in invalid format.
+    //if data is not valid alert user
+    //return true or false
     var validation="";
     var firstname = document.forms["edit_professor"]["firstname"].value;
     if(firstname==""){
