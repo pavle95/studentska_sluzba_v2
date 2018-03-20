@@ -69,7 +69,7 @@
           <input class="btn btn-primary btn-block" type="submit" value="Login">
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="add-user.php">Register an Account</a>
+          <a class="d-block small mt-3" href="add-user.php">Register an Account <br>(For demo purposes)</a>
         </div>
       </div>
     </div>
