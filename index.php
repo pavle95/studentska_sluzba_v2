@@ -23,7 +23,12 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation based on user roles-->
   <?php include "navbar.php"; ?>
-
+  <?php
+        if(!isset($_SESSION['username']))
+        {
+            header("Location: subjects.php");
+        };
+  ?>
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
