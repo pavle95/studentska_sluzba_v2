@@ -45,7 +45,14 @@
                     $_SESSION['is_admin'] = $row['is_admin'];
                     $_SESSION['student_id'] = $row['student_id'];
                     $_SESSION['professor_id'] = $row['professor_id'];
-                    header("location: index.php");
+
+                    if($_SESSION['is_admin']==1)
+                    {
+                        header("location: index.php");
+                    }else
+                        {
+                            header("location: students.php");
+                        }
                 }else{
                     header("location: login.php");
                 }
