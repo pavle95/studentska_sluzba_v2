@@ -54,10 +54,8 @@
                             $username = $_POST['username'];
                             $email = $_POST['email'];
                             $password = $_POST['password'];
-                            $admin = 0;
-                            if (isset($_POST['admin'])) {
-                                $admin = 1;
-                            }
+                            $admin = 1;
+
                             $sql = "Select * from users where email = '$email' ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
@@ -85,11 +83,7 @@
                             <input class="form-control" id="exampleInputPassword1" name="password" type="password"
                                    placeholder="Password">
                         </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="admin"> Admin<br>
-                            </div>
-                        </div>
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
