@@ -1,5 +1,5 @@
 function validateAddSubject() {
-    /*
+    /**
      * Function validates add_subject form
      * @param - none
      * @return boolean
@@ -32,7 +32,7 @@ function validateAddSubject() {
 }
 
 function validateEditSubject() {
-    /*
+    /**
      * Function validates edit_subject form
      * @param - none
      * @return boolean

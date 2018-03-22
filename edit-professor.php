@@ -44,11 +44,10 @@
 
                     <?php
 
-                    /*
+                   /**
                     * Gets the professor and user table data for selected professor and places it into the form inputs
                     * for editing
                     */
-
                     $id = $_REQUEST['id'];
                     $sql = "SELECT p.*, u.*  from professor p, users u where p.id = u.professor_id and p.id=".$id;
                     $result = $conn->query($sql);
@@ -69,11 +68,10 @@
                     <form method="post" name="edit_professor" onsubmit="return validateEditProfessor()">
                         <?php
 
-                        /*
-                        * Updates relevant professor data changed in the inputs
-                        *  containing existing professor information
-                          */
-
+                        /**
+                         * Updates relevant professor data changed in the inputs
+                         * containing existing professor information
+                         */
                         if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $firstname = $_POST['firstname'];
                             $lastname = $_POST['lastname'];
@@ -139,12 +137,11 @@
                             <select class="form-control" name="subject">
                                 <?php
 
-                                /*
+                                /**
                                  * Gives select options about the assignment of a certain subject to
                                  * the professor based on the data that says if the subject is already
                                  * taken by another professor
                                  */
-
                                 $sql = "select * from subject where id not in (select subject_id from professor where id not like '$id')";
                                 $result = $conn->query($sql);
                                 if($result->num_rows>0) {

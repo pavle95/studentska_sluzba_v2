@@ -5,11 +5,10 @@ $is_admin = $_REQUEST['is_admin'];
 $student_id = $_REQUEST['student_id'];
 $professor_id = $_REQUEST['professor_id'];
 
-/*
+/**
  * Deletes user data but also the relevant student/professor data
- *  based on their roles and then redirects back to the user list
+ * based on their roles and then redirects back to the user list
  */
-
 if($is_admin != 0)
 {
     mysqli_query($conn,"DELETE FROM users WHERE id = '$id'");

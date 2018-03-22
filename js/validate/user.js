@@ -1,5 +1,5 @@
 function validateAddUser() {
-    /*
+    /**
      * Function validates add_user form
      * @param - none
      * @return boolean
@@ -42,7 +42,7 @@ function validateAddUser() {
 }
 
 function validateEditUser() {
-    /*
+    /**
      * Function validates edit_user form
      * @param - none
      * @return boolean
@@ -85,7 +85,7 @@ function validateEditUser() {
 }
 
 function validateLogin(){
-    /*
+    /**
      * Function validates login form
      * @param - none
      * @return boolean

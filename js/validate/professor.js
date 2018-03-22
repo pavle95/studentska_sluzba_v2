@@ -1,5 +1,5 @@
 function validateAddProfessor(){
-    /*
+    /**
      * Function validates add_professor form
      * @param - none
      * @return boolean
@@ -63,7 +63,7 @@ function validateAddProfessor(){
 }
 
 function validateEditProfessor(){
-    /*
+    /**
      * Function validates edit_professor form
      * @param - none
      * @return boolean

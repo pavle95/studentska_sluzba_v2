@@ -1,5 +1,10 @@
 <ul class="navbar-nav ml-auto">
     <?php
+
+      /**
+       * Checks to see if there's a logged in user, and if there
+       * is, it assigns the correct icon corresponding to the users role
+       */
         if(isset($_SESSION['username'])){ ?>
 
 

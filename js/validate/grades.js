@@ -1,5 +1,5 @@
 function validateSubjectGrade() {
-     /*
+     /**
       * Function validates subject grade
       * @param - none
       * @return boolean

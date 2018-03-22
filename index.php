@@ -24,6 +24,7 @@
   <!-- Navigation based on user roles-->
   <?php include "navbar.php"; ?>
   <?php
+        /** Doesn't allow guests to see the index page and redirects them to the subjects page instead*/
         if(!isset($_SESSION['username']))
         {
             header("Location: subjects.php");
@@ -61,6 +62,7 @@
                           </thead>
                           <tbody>
                           <?php
+                          /** Loops through all the data from the students table and displays it in a table with following columns*/
                           $result = mysqli_query($conn,"SELECT * FROM student");
                           while($row = mysqli_fetch_array($result)) {
                               echo "<tr>";
@@ -96,6 +98,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
+                                /** Loops through relevat data from the professors and subjects table and displays it in a table with following columns*/
                                 $result = mysqli_query($conn,"SELECT p.id, p.first_name, p.last_name, p.age, s.name FROM professor p, subject s WHERE p.subject_id = s.id");
                                 while($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
@@ -133,6 +136,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
+                                /** Loops through all the data from the subjects table and displays it in a table with following columns*/
                                 $result = mysqli_query($conn,"SELECT * FROM subject");
                                 while($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
@@ -167,6 +171,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
+                                /** Loops through all the data from the users table and displays it in a table with following columns*/
                                 $result = mysqli_query($conn,"SELECT * FROM users");
 
                                 while($row = mysqli_fetch_array($result))

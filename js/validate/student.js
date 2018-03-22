@@ -1,5 +1,5 @@
 function validateAddStudent() {
-    /*
+    /**
      * Function validates add_student form
      * @param - none
      * @return boolean
@@ -73,7 +73,7 @@ function validateAddStudent() {
 }
 
 function validateEditStudent() {
-    /*
+    /**
      * Function validates edit_student form
      * @param - none
      * @return boolean

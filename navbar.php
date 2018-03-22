@@ -1,4 +1,6 @@
 <?php
+
+/** Based on the users role the layout will be different*/
 if(isset($_SESSION["username"])) {
 
     if ($_SESSION["is_admin"] == 1) {
