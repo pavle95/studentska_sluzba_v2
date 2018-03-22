@@ -1,14 +1,16 @@
 function validateAddProfessor(){
-    //check if entered data is empty or in invalid format.
-    //if data is not valid alert user
-    //return true or false
+    /*
+     * Function validates add_professor form
+     * @param - none
+     * @return boolean
+     */
     var validation="";
-    var firstname = document.forms["add_professor"]["firstname"].value;
-    if(firstname==""){
+    var firstName = document.forms["add_professor"]["firstname"].value;
+    if(firstName==""){
         validation+= "first name can't be empty\n";
     }
-    var lastname = document.forms["add_professor"]["lastname"].value;
-    if(lastname==""){
+    var lastName = document.forms["add_professor"]["lastname"].value;
+    if(lastName==""){
         validation+= "last name can't be empty\n";
     }
     var age = document.forms["add_professor"]["age"].value;
@@ -25,28 +27,28 @@ function validateAddProfessor(){
         validation+= "subject can't be empty\n";
     }
     var username = document.forms["add_professor"]["username"].value;
-    var usernameRegx = new RegExp("^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$");
+    var usernamePattern = new RegExp("^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$");
     if(username!==""){
-        if(usernameRegx.test(username)==false){
+        if(usernamePattern.test(username)==false){
             validation+="Username format invalid\n";
         }
     }else{
         validation+= "username can't be empty\n";
     }
     var email = document.forms["add_professor"]["email"].value;
-    var emailRegx = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+    var emailPattern = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
     if(email!==""){
-        if(emailRegx.test(email)==false){
+        if(emailPattern.test(email)==false){
             validation+="Email format invalid\n";
         }
     }else{
         validation+= "email can't be empty\n";
     }
     var password = document.forms["add_professor"]["password"].value;
-    var passRegx = new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$");
+    var passwordPattern = new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$");
     if(password!==""){
-        if(passRegx.test(password)==false){
-            validation+="Password format invalid\n"; //10chars,1 lowercase, 1 uppercase and a number
+        if(passwordPattern.test(password)==false){
+            validation+="Password format invalid\n"; //4-12chars,1 lowercase, 1 uppercase and a number
         }
     }else{
         validation+= "password can't be empty\n";
@@ -61,16 +63,18 @@ function validateAddProfessor(){
 }
 
 function validateEditProfessor(){
-    //check if entered data is empty or in invalid format.
-    //if data is not valid alert user
-    //return true or false
+    /*
+     * Function validates edit_professor form
+     * @param - none
+     * @return boolean
+     */
     var validation="";
-    var firstname = document.forms["edit_professor"]["firstname"].value;
-    if(firstname==""){
+    var firstName = document.forms["edit_professor"]["firstname"].value;
+    if(firstName==""){
         validation+= "first name can't be empty\n";
     }
-    var lastname = document.forms["edit_professor"]["lastname"].value;
-    if(lastname==""){
+    var lastName = document.forms["edit_professor"]["lastname"].value;
+    if(lastName==""){
         validation+= "last name can't be empty\n";
     }
     var age = document.forms["edit_professor"]["age"].value;
@@ -87,28 +91,28 @@ function validateEditProfessor(){
         validation+= "subject can't be empty\n";
     }
     var username = document.forms["edit_professor"]["username"].value;
-    var usernameRegx = new RegExp("^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$");
+    var usernamePattern = new RegExp("^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$");
     if(username!==""){
-        if(usernameRegx.test(username)==false){
+        if(usernamePattern.test(username)==false){
             validation+="Username format invalid\n";
         }
     }else{
         validation+= "username can't be empty\n";
     }
     var email = document.forms["edit_professor"]["email"].value;
-    var emailRegx = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+    var emailPattern = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
     if(email!==""){
-        if(emailRegx.test(email)==false){
+        if(emailPattern.test(email)==false){
             validation+="Email format invalid\n";
         }
     }else{
         validation+= "email can't be empty\n";
     }
     var password = document.forms["edit_professor"]["password"].value;
-    var passRegx = new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$");
+    var passwordPattern = new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$");
     if(password!==""){
-        if(passRegx.test(password)==false){
-            validation+="Password format invalid\n"; //10chars,1 lowercase, 1 uppercase and a number
+        if(passwordPattern.test(password)==false){
+            validation+="Password format invalid\n"; //4-12chars,1 lowercase, 1 uppercase and a number
         }
     }else{
         validation+= "password can't be empty\n";

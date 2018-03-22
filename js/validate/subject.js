@@ -1,7 +1,9 @@
 function validateAddSubject() {
-    //check if entered data(name, ecdl, descirption) is empty or in invalid format.
-    //if data is not valid alert user
-    //return true or false
+    /*
+     * Function validates add_subject form
+     * @param - none
+     * @return boolean
+     */
     var validation = "";
     var name = document.forms["add_subject"]["name"].value;
     if(name==""){
@@ -21,7 +23,7 @@ function validateAddSubject() {
         validation+= "description can't be empty.\n";
     }
     if(validation==""){
-        alert("Subject added successfully");
+        //alert("Subject added successfully");
         return true;
     }else{
         alert(validation);
@@ -30,9 +32,11 @@ function validateAddSubject() {
 }
 
 function validateEditSubject() {
-    //check if entered data(name, ecdl, descirption) is empty or in invalid format.
-    //if data is not valid alert user
-    //return true or false
+    /*
+     * Function validates edit_subject form
+     * @param - none
+     * @return boolean
+     */
     var validation = "";
     var name = document.forms["edit_subject"]["name"].value;
     if(name==""){
